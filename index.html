@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h2>A Simple Calculator</h2>
+    <div class="container">
+        <input type="text" placeholder="0" disabled id="input">
+        <input type="text" placeholder="0" disabled id="output">
+        <table class="table">
+            <tr>
+                <td onclick="removech()" ><-</td>
+                <td class="btn (" >(</td>
+                <td class="btn )">)</td>
+                <td class="operator btn +">+</td>
+            </tr>
+            <tr>
+                <td class="btn 9">9</td>
+                <td class="btn 8">8</td>
+                <td class="btn 7">7</td>
+                <td class="operator btn -">-</td>
+            </tr>
+            <tr>
+                <td class="btn 6">6</td>
+                <td class="btn 5">5</td>
+                <td class="btn 4">4</td>
+                <td class="operator btn *">*</td>
+            </tr>
+            <tr>
+                <td class="btn 3">3</td>
+                <td class="btn 2">2</td>
+                <td class="btn 1">1</td>
+                <td class="operator btn /">/</td>
+            </tr>
+            <tr>
+                <td class="reset c" onclick="reset()">C</td>
+                <td class="btn 0">0</td>
+                <td class="btn .">.</td>
+                <td class="equal =" onclick="ans()">=</td>
+            </tr>
+        </table>
+    </div>
+    <script src="index.js"></script>
+
+    <script>
+        let btn = document.querySelectorAll('.btn');
+        for (let index = 0; index <btn.length ; index++) {
+            btn[index].addEventListener("click",()=>{
+                btn[index].classList.add('pressed');
+                
+                setInterval(() => {
+                    btn[index].classList.remove('pressed');
+                }, 150);
+            })
+            // console.log(btn[index]);
+            
+        }
+    </script>
+</body>
+</html>
